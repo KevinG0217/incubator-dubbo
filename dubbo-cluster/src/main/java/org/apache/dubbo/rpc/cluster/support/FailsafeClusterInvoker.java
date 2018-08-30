@@ -31,9 +31,8 @@ import java.util.List;
 /**
  * When invoke fails, log the error message and ignore this error by returning an empty RpcResult.
  * Usually used to write audit logs and other operations
- *
+ * <p>
  * <a href="http://en.wikipedia.org/wiki/Fail-safe">Fail-safe</a>
- *
  */
 public class FailsafeClusterInvoker<T> extends AbstractClusterInvoker<T> {
     private static final Logger logger = LoggerFactory.getLogger(FailsafeClusterInvoker.class);

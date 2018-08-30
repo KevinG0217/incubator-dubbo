@@ -54,10 +54,9 @@ public final class StringUtils {
      * Gets a CharSequence length or {@code 0} if the CharSequence is
      * {@code null}.
      *
-     * @param cs
-     *            a CharSequence or {@code null}
+     * @param cs a CharSequence or {@code null}
      * @return CharSequence length or {@code 0} if the CharSequence is
-     *         {@code null}.
+     * {@code null}.
      */
     public static int length(final CharSequence cs) {
         return cs == null ? 0 : cs.length();
@@ -66,7 +65,7 @@ public final class StringUtils {
     /**
      * <p>Repeat a String {@code repeat} times to form a
      * new String.</p>
-     *
+     * <p>
      * <pre>
      * StringUtils.repeat(null, 2) = null
      * StringUtils.repeat("", 0)   = ""
@@ -76,10 +75,10 @@ public final class StringUtils {
      * StringUtils.repeat("a", -2) = ""
      * </pre>
      *
-     * @param str  the String to repeat, may be null
-     * @param repeat  number of times to repeat str, negative treated as zero
+     * @param str    the String to repeat, may be null
+     * @param repeat number of times to repeat str, negative treated as zero
      * @return a new String consisting of the original String repeated,
-     *  {@code null} if null String input
+     * {@code null} if null String input
      */
     public static String repeat(final String str, final int repeat) {
         // Performance tuned for 2.0 (JDK1.4)
@@ -100,9 +99,9 @@ public final class StringUtils {
 
         final int outputLength = inputLength * repeat;
         switch (inputLength) {
-            case 1 :
+            case 1:
                 return repeat(str.charAt(0), repeat);
-            case 2 :
+            case 2:
                 final char ch0 = str.charAt(0);
                 final char ch1 = str.charAt(1);
                 final char[] output2 = new char[outputLength];
@@ -111,7 +110,7 @@ public final class StringUtils {
                     output2[i + 1] = ch1;
                 }
                 return new String(output2);
-            default :
+            default:
                 final StringBuilder buf = new StringBuilder(outputLength);
                 for (int i = 0; i < repeat; i++) {
                     buf.append(str);
@@ -123,7 +122,7 @@ public final class StringUtils {
     /**
      * <p>Repeat a String {@code repeat} times to form a
      * new String, with a String separator injected each time. </p>
-     *
+     * <p>
      * <pre>
      * StringUtils.repeat(null, null, 2) = null
      * StringUtils.repeat(null, "x", 2)  = null
@@ -133,15 +132,15 @@ public final class StringUtils {
      * StringUtils.repeat("?", ", ", 3)  = "?, ?, ?"
      * </pre>
      *
-     * @param str        the String to repeat, may be null
-     * @param separator  the String to inject, may be null
-     * @param repeat     number of times to repeat str, negative treated as zero
+     * @param str       the String to repeat, may be null
+     * @param separator the String to inject, may be null
+     * @param repeat    number of times to repeat str, negative treated as zero
      * @return a new String consisting of the original String repeated,
-     *  {@code null} if null String input
+     * {@code null} if null String input
      * @since 2.5
      */
     public static String repeat(final String str, final String separator, final int repeat) {
-        if(str == null || separator == null) {
+        if (str == null || separator == null) {
             return repeat(str, repeat);
         }
         // given that repeat(String, int) is quite optimized, better to rely on it than try and splice this into it
@@ -152,11 +151,11 @@ public final class StringUtils {
     /**
      * <p>Removes a substring only if it is at the end of a source string,
      * otherwise returns the source string.</p>
-     *
+     * <p>
      * <p>A {@code null} source string will return {@code null}.
      * An empty ("") source string will return the empty string.
      * A {@code null} search string will return the source string.</p>
-     *
+     * <p>
      * <pre>
      * StringUtils.removeEnd(null, *)      = null
      * StringUtils.removeEnd("", *)        = ""
@@ -167,10 +166,10 @@ public final class StringUtils {
      * StringUtils.removeEnd("abc", "")    = "abc"
      * </pre>
      *
-     * @param str  the source String to search, may be null
-     * @param remove  the String to search for and remove, may be null
+     * @param str    the source String to search, may be null
+     * @param remove the String to search for and remove, may be null
      * @return the substring with the string removed if found,
-     *  {@code null} if null String input
+     * {@code null} if null String input
      */
     public static String removeEnd(final String str, final String remove) {
         if (isEmpty(str) || isEmpty(remove)) {
@@ -185,13 +184,13 @@ public final class StringUtils {
     /**
      * <p>Returns padding using the specified delimiter repeated
      * to a given length.</p>
-     *
+     * <p>
      * <pre>
      * StringUtils.repeat('e', 0)  = ""
      * StringUtils.repeat('e', 3)  = "eee"
      * StringUtils.repeat('e', -2) = ""
      * </pre>
-     *
+     * <p>
      * <p>Note: this method doesn't not support padding with
      * <a href="http://www.unicode.org/glossary/#supplementary_character">Unicode Supplementary Characters</a>
      * as they require a pair of {@code char}s to be represented.
@@ -199,8 +198,8 @@ public final class StringUtils {
      * consider using {@link #repeat(String, int)} instead.
      * </p>
      *
-     * @param ch  character to repeat
-     * @param repeat  number of times to repeat char, negative treated as zero
+     * @param ch     character to repeat
+     * @param repeat number of times to repeat char, negative treated as zero
      * @return String with repeated character
      * @see #repeat(String, int)
      */
@@ -214,13 +213,13 @@ public final class StringUtils {
 
     /**
      * <p>Strips any of a set of characters from the end of a String.</p>
-     *
+     * <p>
      * <p>A {@code null} input String returns {@code null}.
      * An empty string ("") input returns the empty string.</p>
-     *
+     * <p>
      * <p>If the stripChars String is {@code null}, whitespace is
      * stripped as defined by {@link Character#isWhitespace(char)}.</p>
-     *
+     * <p>
      * <pre>
      * StringUtils.stripEnd(null, *)          = null
      * StringUtils.stripEnd("", *)            = ""
@@ -233,8 +232,8 @@ public final class StringUtils {
      * StringUtils.stripEnd("120.00", ".0")   = "12"
      * </pre>
      *
-     * @param str  the String to remove characters from, may be null
-     * @param stripChars  the set of characters to remove, null treated as whitespace
+     * @param str        the String to remove characters from, may be null
+     * @param stripChars the set of characters to remove, null treated as whitespace
      * @return the stripped String, {@code null} if null String input
      */
     public static String stripEnd(final String str, final String stripChars) {
@@ -259,9 +258,9 @@ public final class StringUtils {
 
     /**
      * <p>Replaces all occurrences of a String within another String.</p>
-     *
+     * <p>
      * <p>A {@code null} reference passed to this method is a no-op.</p>
-     *
+     * <p>
      * <pre>
      * StringUtils.replace(null, *, *)        = null
      * StringUtils.replace("", *, *)          = ""
@@ -273,12 +272,12 @@ public final class StringUtils {
      * StringUtils.replace("aba", "a", "z")   = "zbz"
      * </pre>
      *
-     * @see #replace(String text, String searchString, String replacement, int max)
-     * @param text  text to search and replace in, may be null
-     * @param searchString  the String to search for, may be null
+     * @param text         text to search and replace in, may be null
+     * @param searchString the String to search for, may be null
      * @param replacement  the String to replace it with, may be null
      * @return the text with any replacements processed,
-     *  {@code null} if null String input
+     * {@code null} if null String input
+     * @see #replace(String text, String searchString, String replacement, int max)
      */
     public static String replace(final String text, final String searchString, final String replacement) {
         return replace(text, searchString, replacement, -1);
@@ -287,9 +286,9 @@ public final class StringUtils {
     /**
      * <p>Replaces a String with another String inside a larger String,
      * for the first {@code max} values of the search String.</p>
-     *
+     * <p>
      * <p>A {@code null} reference passed to this method is a no-op.</p>
-     *
+     * <p>
      * <pre>
      * StringUtils.replace(null, *, *, *)         = null
      * StringUtils.replace("", *, *, *)           = ""
@@ -305,12 +304,12 @@ public final class StringUtils {
      * StringUtils.replace("abaa", "a", "z", -1)  = "zbzz"
      * </pre>
      *
-     * @param text  text to search and replace in, may be null
-     * @param searchString  the String to search for, may be null
+     * @param text         text to search and replace in, may be null
+     * @param searchString the String to search for, may be null
      * @param replacement  the String to replace it with, may be null
-     * @param max  maximum number of values to replace, or {@code -1} if no maximum
+     * @param max          maximum number of values to replace, or {@code -1} if no maximum
      * @return the text with any replacements processed,
-     *  {@code null} if null String input
+     * {@code null} if null String input
      */
     public static String replace(final String text, final String searchString, final String replacement, int max) {
         if (isEmpty(text) || isEmpty(searchString) || replacement == null || max == 0) {

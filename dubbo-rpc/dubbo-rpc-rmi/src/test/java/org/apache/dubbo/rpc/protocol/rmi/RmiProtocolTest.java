@@ -150,7 +150,7 @@ public class RmiProtocolTest {
 	}*/
 
 	/*public void testForkInvoke() throws Exception
-	{
+    {
 		DemoService service = new DemoServiceImpl();
 		protocol.export(proxy.createInvoker("dubbo://127.0.0.1:9040/TestService", DemoService.class, service);
 		protocol.export(proxy.createInvoker("dubbo://127.0.0.1:9041/TestService", DemoService.class, service);

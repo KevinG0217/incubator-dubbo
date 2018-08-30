@@ -68,7 +68,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @see java.net.URL
  * @see java.net.URI
  */
-public /**final**/ class URL implements Serializable {
+public /**final**/
+class URL implements Serializable {
 
     private static final long serialVersionUID = -1985165475234910535L;
 
@@ -242,7 +243,7 @@ public /**final**/ class URL implements Serializable {
                 // see https://howdoesinternetwork.com/2013/ipv6-zone-id
                 // ignore
             } else {
-                port = Integer.parseInt(url.substring(i+1));
+                port = Integer.parseInt(url.substring(i + 1));
                 url = url.substring(0, i);
             }
         }
@@ -315,7 +316,7 @@ public /**final**/ class URL implements Serializable {
 
     /**
      * Fetch IP address for this URL.
-     *
+     * <p>
      * Pls. note that IP should be used instead of Host when to compare with socket's address or to search in a map
      * which use address as its key.
      *

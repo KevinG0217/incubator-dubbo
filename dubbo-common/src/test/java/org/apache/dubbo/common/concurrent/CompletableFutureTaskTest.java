@@ -45,7 +45,7 @@ public class CompletableFutureTaskTest {
         CompletableFuture<Boolean> completableFuture = CompletableFuture.supplyAsync(() -> {
             countDownLatch.countDown();
             return true;
-        },executor);
+        }, executor);
         countDownLatch.await();
     }
 
@@ -74,7 +74,7 @@ public class CompletableFutureTaskTest {
             }
             return "hello";
 
-        },executor);
+        }, executor);
         final CountDownLatch countDownLatch = new CountDownLatch(1);
         completableFuture.thenRunAsync(new Runnable() {
             @Override

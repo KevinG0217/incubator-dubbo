@@ -41,9 +41,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * When fails, record failure requests and schedule for retry on a regular interval.
  * Especially useful for services of notification.
- *
+ * <p>
  * <a href="http://en.wikipedia.org/wiki/Failback">Failback</a>
- *
  */
 public class FailbackClusterInvoker<T> extends AbstractClusterInvoker<T> {
 

@@ -40,7 +40,6 @@ import java.util.regex.Pattern;
 
 /**
  * ConditionRouter
- *
  */
 public class ConditionRouter implements Router, Comparable<Router> {
 
